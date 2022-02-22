@@ -6,18 +6,20 @@ import styles from './Cards.module.css';
 
 
 export default function Cards(props) {
-  // acá va tu código
-  // tip, podés usar un map
-  
+  // cities = city1, city2, city3
   return (
-    <div classname={styles.col}>
+    
+    <div className={styles.col}>
       {
-       props.cities && props.cities.map(city=> (
+       props.cities && props.cities.map((city, index)=> (
+       
+         //city1 --- city2 ---- city3
         <Card
-          max={city.main.temp_max}
-          min={city.main.temp_min}
+          key = {city.id}
+          max={city.max}
+          min={city.min}
           name={city.name}
-          img={city.weather[0].icon}
+          img={city.img}
           onClose={() => Swal.fire(city.name)}
           
         />

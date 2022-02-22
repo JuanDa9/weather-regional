@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+
+
 export const StyledSearchbar = styled.nav `
 position:sticky;
 bottom:0;
