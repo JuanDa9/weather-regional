@@ -6,7 +6,7 @@ export const StyledSearchbar = styled.nav `
 position:sticky;
 bottom:0;
 left:0;
-background-color :${props => props.dark ? 'black' : '#343a40' }`;
+background-color :${props => props.dark ? '#343a40' : 'grey' }`;
 
 export const InputSearchbar = styled.input `
 border-radius : 10em;

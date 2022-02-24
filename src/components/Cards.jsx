@@ -16,6 +16,7 @@ export default function Cards(props) {
          //city1 --- city2 ---- city3
         <Card
           key = {city.id}
+          id= {city.id}
           max={city.max}
           min={city.min}
           name={city.name}

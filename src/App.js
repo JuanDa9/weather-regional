@@ -3,9 +3,9 @@ import './App.css';
 import Cards from './components/Cards.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import Swal from 'sweetalert2';
-
-
-
+import About from './components/About';
+import { Route, Routes } from 'react-router-dom';
+import CityDetails from './components/cityDetails/CityDetails';
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -46,24 +46,35 @@ function App() {
     }
 
   return (
-    <div className="App">
-      <div>
-        {
-          todos.map(user => <p key= {user.id}>{user.name}</p>)
-        }
-      </div>
-      <div>
-         <Cards
-          cities={cities}
-        />
-      </div>
-      <hr />
-      <div>
-        <SearchBar
-          onSearch={onSearch}
-        />
-      </div>
-    </div>
+    <>
+      <SearchBar onSearch={onSearch}/>
+      <Routes>
+        <Route path="/" element={<Cards cities={cities}/>}/>
+        <Route path="/:nameCity/:id" element={<CityDetails cities={cities} />}/>
+        <Route path="/about" element={<About/>}/>
+      </Routes>
+    </>
+    // <div className="App">
+    //   <div>
+    //     {
+    //       todos.map(user => <p key= {user.id}>{user.name}</p>)
+    //     }
+    //   </div>
+    //   <div>
+    //      <Cards
+    //       cities={cities}
+    //     />
+    //   </div>
+    //   <hr />
+    //   <div>
+    //     <SearchBar
+    //       onSearch={onSearch}
+    //     />
+    //   </div>
+    //   <div>
+    //     <a href="./components/About">About</a>
+    //   </div>
+    // </div>
 
   );
 }
@@ -75,3 +86,7 @@ export default App;
 
 
 
+{/* <Route path='/' render={() => <Nav onSearch={onSearch} />}/>
+<Route path='/about' component={About}/>
+<Route exact path='/' render={() => <Cards cities={cities} onClose={onClose} />}/>
+<Route exact path='/ciudad/:ciudadId' render={({match})=> <Ciudad city={onFilter(match.params.ciudadId)}/>}/> */}
